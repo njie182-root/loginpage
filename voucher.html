@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Voucher Hotspot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <img src="logo.png" alt="Logo" class="logo">
+
+    <h2>Voucher Hotspot</h2>
+    <p>Masukkan kode voucher Anda</p>
+
+    <!-- FORM LOGIN VOUCHER -->
+    <form name="login" action="$(link-login-only)" method="post">
+      <input type="hidden" name="dst" value="$(link-orig)">
+      <input type="hidden" name="popup" value="true">
+
+      <input type="text" name="username" placeholder="Kode Voucher" required>
+      <input type="hidden" name="password" value="">
+
+      <button type="submit">Masuk</button>
+    </form>
+
+    <button id="themeToggle" class="toggle">🌙</button>
+    <small class="copy">© 2026 Hotspot</small>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
