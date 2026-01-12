@@ -2,22 +2,33 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Esport Hotspot Login</title>
+<title>Esport Hotspot — Mix Theme</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <style>
-/* RESET */
+/* ===== RESET ===== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
 html,body{height:100%}
 
-/* BACKGROUND ESPORT */
+/* ===== THEME COLORS (MIX) =====
+   ML  : biru-emas
+   VAL : merah-neon
+   PUBG: kuning-amber
+*/
+:root{
+  --ml-blue:#2563eb;
+  --ml-gold:#f59e0b;
+  --val-red:#ff4655;
+  --pubg-amber:#fbbf24;
+  --neon-cyan:#22d3ee;
+}
+
+/* ===== BACKGROUND ===== */
 body{
   background:
     linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
     url("bg-esport.jpg") center/cover no-repeat fixed;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display:flex;align-items:center;justify-content:center;
   transition:.4s;
 }
 body.dark{
@@ -26,128 +37,108 @@ body.dark{
     url("bg-esport.jpg") center/cover no-repeat fixed;
 }
 
-/* CONTAINER */
+/* ===== CONTAINER ===== */
 .container{width:100%;max-width:420px;padding:16px}
 
-/* CARD - NEON GLOW */
+/* ===== CARD (NEON SUPER) ===== */
 .card{
-  background:rgba(5,5,20,.95);
-  color:#fff;
-  border-radius:20px;
-  padding:30px 24px;
-  text-align:center;
+  background:rgba(5,5,20,.96);
+  color:#fff;border-radius:22px;
+  padding:30px 24px;text-align:center;
   position:relative;
   box-shadow:
-    0 0 25px rgba(99,102,241,.6),
-    0 0 60px rgba(99,102,241,.35),
-    inset 0 0 25px rgba(99,102,241,.15);
+    0 0 30px rgba(37,99,235,.6),
+    0 0 60px rgba(255,70,85,.35),
+    0 0 90px rgba(251,191,36,.25),
+    inset 0 0 25px rgba(34,211,238,.15);
   animation:fadeUp .9s ease;
 }
 
-/* NEON BORDER ANIMATED */
+/* ===== NEON BORDER ANIM ===== */
 .card::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:22px;
-  background:linear-gradient(135deg,#22c55e,#6366f1,#ec4899,#22c55e);
-  filter:blur(12px);
-  opacity:.9;
-  z-index:-1;
+  content:"";position:absolute;inset:-3px;border-radius:24px;
+  background:linear-gradient(135deg,
+    var(--ml-blue),
+    var(--val-red),
+    var(--pubg-amber),
+    var(--neon-cyan),
+    var(--ml-blue)
+  );
+  filter:blur(14px);opacity:.95;z-index:-1;
   animation:neonMove 6s linear infinite;
 }
 
-@keyframes neonMove{
-  0%{filter:blur(12px) hue-rotate(0deg)}
-  100%{filter:blur(12px) hue-rotate(360deg)}
-}
+/* ===== LOGO ===== */
+.logo{width:92px;margin-bottom:14px}
 
-/* LOGO */
-.logo{width:90px;margin-bottom:14px}
-
-/* TEXT */
+/* ===== TEXT ===== */
 p{font-size:14px;color:#c7d2fe;margin-bottom:16px}
 
-/* INPUT */
+/* ===== INPUT ===== */
 input{
-  width:100%;
-  padding:14px;
-  margin-bottom:12px;
-  border-radius:12px;
-  border:1px solid #4338ca;
-  background:#020617;
-  color:white;
-  font-size:15px;
-  box-shadow:0 0 12px rgba(99,102,241,.25);
+  width:100%;padding:14px;margin-bottom:12px;
+  border-radius:12px;border:1px solid #4338ca;
+  background:#020617;color:white;font-size:15px;
+  box-shadow:0 0 14px rgba(34,211,238,.35);
 }
 input:focus{
-  outline:none;
-  border-color:#22c55e;
-  box-shadow:0 0 18px rgba(34,197,94,.6);
+  outline:none;border-color:var(--pubg-amber);
+  box-shadow:0 0 22px rgba(251,191,36,.8);
 }
 
-/* BUTTON GROUP */
+/* ===== BUTTON GROUP ===== */
 .btn-group{display:flex;flex-direction:column;gap:14px}
 
-/* BUTTON LOGIN */
+/* ===== BUTTONS (MIX STYLE) ===== */
 .btn-login{
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:white;border:none;border-radius:12px;
+  background:linear-gradient(135deg,var(--ml-blue),var(--ml-gold));
+  color:#fff;border:none;border-radius:12px;
   padding:14px;font-size:16px;cursor:pointer;
   transition:.2s;
   box-shadow:
-    0 0 12px rgba(34,197,94,.6),
-    0 0 30px rgba(34,197,94,.35);
+    0 0 16px rgba(37,99,235,.8),
+    0 0 36px rgba(245,158,11,.45);
 }
 .btn-login:hover{
   transform:scale(1.08);
   box-shadow:
-    0 0 18px rgba(34,197,94,.9),
-    0 0 45px rgba(34,197,94,.6);
+    0 0 22px rgba(37,99,235,1),
+    0 0 50px rgba(245,158,11,.7);
 }
 
-/* BUTTON VOUCHER */
 .btn-voucher{
-  background:linear-gradient(135deg,#6366f1,#4f46e5);
-  color:white;border:none;border-radius:12px;
+  background:linear-gradient(135deg,var(--val-red),var(--neon-cyan));
+  color:#fff;border:none;border-radius:12px;
   padding:14px;font-size:15px;cursor:pointer;
   transition:.2s;
   box-shadow:
-    0 0 12px rgba(99,102,241,.6),
-    0 0 30px rgba(99,102,241,.35);
+    0 0 16px rgba(255,70,85,.8),
+    0 0 36px rgba(34,211,238,.45);
 }
 .btn-voucher:hover{
   transform:scale(1.08);
   box-shadow:
-    0 0 18px rgba(99,102,241,.9),
-    0 0 45px rgba(99,102,241,.6);
+    0 0 22px rgba(255,70,85,1),
+    0 0 50px rgba(34,211,238,.7);
 }
 
-/* TOGGLE */
+/* ===== TOGGLE ===== */
 .toggle{
-  margin-top:14px;
-  background:none;border:none;
+  margin-top:14px;background:none;border:none;
   font-size:22px;cursor:pointer;
 }
 
-/* FOOTER */
-.copy{margin-top:14px;font-size:12px;color:#94a3b8}
+/* ===== FOOTER ===== */
+.copy{margin-top:14px;font-size:12px;color:#e5e7eb}
 
-/* ANIMASI */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(35px)}
-  to{opacity:1;transform:translateY(0)}
-}
+/* ===== ANIM ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
+@keyframes neonMove{0%{filter:blur(14px) hue-rotate(0deg)}100%{filter:blur(14px) hue-rotate(360deg)}}
 
-/* FULLSCREEN MOBILE */
+/* ===== FULLSCREEN MOBILE ===== */
 @media(max-width:600px){
   body{align-items:stretch}
-  .container{
-    max-width:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
+  .container{max-width:none;display:flex;align-items:center;justify-content:center}
 }
 </style>
 </head>
@@ -163,7 +154,7 @@ input:focus{
     <img src="logo.png" class="logo" alt="Logo">
 
     <h2>ESPORT HOTSPOT</h2>
-    <p>Masuk & mulai match kamu ⚡</p>
+    <p>ML ✕ Valorant ✕ PUBG — Masuk & mulai match ⚡</p>
 
     <!-- FORM LOGIN USER -->
     <form name="login" action="$(link-login-only)" method="post">
@@ -191,24 +182,17 @@ input:focus{
 <script>
 const toggle=document.getElementById("themeToggle");
 const clickSound=document.getElementById("clickSound");
-
-function playClick(){
-  clickSound.currentTime=0;
-  clickSound.play();
-}
+function playClick(){ clickSound.currentTime=0; clickSound.play(); }
 
 /* DARK MODE */
 if(localStorage.getItem("theme")==="dark"){
-  document.body.classList.add("dark");
-  toggle.textContent="☀️";
+  document.body.classList.add("dark"); toggle.textContent="☀️";
 }
 toggle.onclick=()=>{
   playClick();
   document.body.classList.toggle("dark");
-  toggle.textContent=
-    document.body.classList.contains("dark")?"☀️":"🌙";
-  localStorage.setItem("theme",
-    document.body.classList.contains("dark")?"dark":"light");
+  toggle.textContent=document.body.classList.contains("dark")?"☀️":"🌙";
+  localStorage.setItem("theme",document.body.classList.contains("dark")?"dark":"light");
 };
 </script>
 
