@@ -8,7 +8,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
 html,body{height:100%}
-:root{--neon:#22c55e;--bg:url("bg-ml.jpg");}
+:root{--neon:#22c55e;--bg:url("bg-ml.webp");}
 
 body{
  background:
@@ -114,15 +114,15 @@ function setTheme(game){
  playClick();
  if(game==="ml"){
   root.style.setProperty("--neon","#22c55e");
-  root.style.setProperty("--bg",'url("bg-ml.jpg")');
+  root.style.setProperty("--bg",'url("bg-ml.webp")');
  }
  if(game==="valorant"){
   root.style.setProperty("--neon","#ef4444");
-  root.style.setProperty("--bg",'url("bg-valorant.jpg")');
+  root.style.setProperty("--bg",'url("bg-valorant.webp")');
  }
  if(game==="pubg"){
   root.style.setProperty("--neon","#facc15");
-  root.style.setProperty("--bg",'url("bg-pubg.jpg")');
+  root.style.setProperty("--bg",'url("bg-pubg.webp")');
  }
  localStorage.setItem("gameTheme",game);
 }
