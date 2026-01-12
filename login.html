@@ -2,171 +2,114 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Hotspot Login</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming Hotspot Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <style>
 /* RESET */
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:system-ui,Segoe UI,Roboto,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
 
-/* ===== BACKGROUND GAMBAR ===== */
+/* FULLSCREEN */
+html,body{height:100%}
+
+/* BACKGROUND GAMING */
 body{
-  min-height:100vh;
   background:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url("bg.jpg") center/cover no-repeat;
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("bg-gaming.jpg") center/cover no-repeat fixed;
   display:flex;
   align-items:center;
   justify-content:center;
   transition:.4s;
 }
-
-/* MODE GELAP */
 body.dark{
   background:
-    linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
-    url("bg.jpg") center/cover no-repeat;
+    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+    url("bg-gaming.jpg") center/cover no-repeat fixed;
 }
 
-/* ===== CONTAINER ===== */
+/* CONTAINER */
 .container{
   width:100%;
-  max-width:380px;
-  padding:20px;
+  max-width:400px;
+  padding:16px;
 }
 
-/* ===== CARD ===== */
+/* CARD */
 .card{
-  background:#fff;
-  border-radius:16px;
+  background:rgba(10,10,25,.92);
+  color:#fff;
+  border-radius:18px;
   padding:28px 22px;
   text-align:center;
-  box-shadow:0 20px 40px rgba(0,0,0,.2);
-
-  /* animasi masuk */
-  animation:fadeUp .8s ease;
-  transition:.4s;
-}
-
-/* MODE GELAP CARD */
-body.dark .card{
-  background:#0f172a;
-  color:#e5e7eb;
+  box-shadow:0 0 40px rgba(99,102,241,.5);
+  animation:fadeUp .9s ease;
 }
 
 /* LOGO */
-.logo{
-  width:90px;
-  margin-bottom:15px;
-}
+.logo{width:90px;margin-bottom:14px}
 
 /* TEXT */
-p{
-  font-size:14px;
-  color:#555;
-  margin-bottom:18px;
-}
-body.dark p{color:#cbd5f5}
+p{font-size:14px;color:#c7d2fe;margin-bottom:16px}
 
 /* INPUT */
 input{
   width:100%;
-  padding:12px 14px;
+  padding:13px;
   margin-bottom:12px;
-  border-radius:8px;
-  border:1px solid #ddd;
-  font-size:14px;
-}
-input:focus{
-  outline:none;
-  border-color:#6366f1;
-}
-body.dark input{
+  border-radius:10px;
+  border:1px solid #4338ca;
   background:#020617;
-  border-color:#334155;
   color:white;
+  font-size:15px;
 }
+input:focus{outline:none;border-color:#a5b4fc}
 
-/* ===== BUTTON GROUP ===== */
-.btn-group{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  margin-top:10px;
-}
+/* BUTTON GROUP */
+.btn-group{display:flex;flex-direction:column;gap:12px}
 
-/* BUTTON LOGIN */
+/* BUTTONS */
 .btn-login{
-  background:#22c55e;
-  color:white;
-  padding:12px;
-  border:none;
-  border-radius:8px;
-  font-size:15px;
-  cursor:pointer;
-  transition:.3s;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:white;border:none;border-radius:10px;
+  padding:13px;font-size:16px;cursor:pointer;
+  transition:.25s;
 }
-.btn-login:hover{
-  background:#16a34a;
-  transform:translateY(-2px);
-}
+.btn-login:hover{transform:scale(1.05)}
 
-/* BUTTON VOUCHER */
 .btn-voucher{
-  background:#4f46e5;
-  color:white;
-  padding:12px;
-  border:none;
-  border-radius:8px;
-  font-size:15px;
-  cursor:pointer;
-  transition:.3s;
+  background:linear-gradient(135deg,#6366f1,#4f46e5);
+  color:white;border:none;border-radius:10px;
+  padding:13px;font-size:15px;cursor:pointer;
+  transition:.25s;
 }
-.btn-voucher:hover{
-  background:#4338ca;
-  transform:translateY(-2px);
-}
+.btn-voucher:hover{transform:scale(1.05)}
 
-/* ===== TOGGLE DARK MODE ===== */
+/* TOGGLE */
 .toggle{
   margin-top:14px;
-  background:transparent;
-  border:none;
-  font-size:22px;
-  cursor:pointer;
-  transition:.3s;
+  background:none;border:none;
+  font-size:22px;cursor:pointer;
 }
-.toggle:hover{transform:rotate(20deg)}
 
 /* FOOTER */
-.copy{
-  display:block;
-  margin-top:14px;
-  font-size:12px;
-  color:#777;
-}
-body.dark .copy{color:#9ca3af}
+.copy{margin-top:14px;font-size:12px;color:#94a3b8}
 
-/* ===== ANIMASI ===== */
+/* ANIMATION */
 @keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(25px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
-/* RESPONSIVE */
-@media(max-width:480px){
-  .card{padding:22px 18px;}
+/* FULLSCREEN MOBILE */
+@media(max-width:600px){
+  body{align-items:stretch}
+  .container{
+    max-width:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
 }
 </style>
 </head>
@@ -178,10 +121,10 @@ body.dark .copy{color:#9ca3af}
 
     <img src="logo.png" class="logo" alt="Logo">
 
-    <h2>Hotspot Login</h2>
-    <p>Silakan masuk untuk akses internet</p>
+    <h2>GAMING HOTSPOT</h2>
+    <p>Masuk & mulai permainanmu ⚡</p>
 
-    <!-- FORM LOGIN MIKROTIK -->
+    <!-- FORM LOGIN USER -->
     <form name="login" action="$(link-login-only)" method="post">
       <input type="hidden" name="dst" value="$(link-orig)">
       <input type="hidden" name="popup" value="true">
@@ -190,40 +133,32 @@ body.dark .copy{color:#9ca3af}
       <input type="password" name="password" placeholder="Password" required>
 
       <div class="btn-group">
-        <button class="btn-login" type="submit">Login</button>
+        <button class="btn-login" type="submit">LOGIN</button>
         <button class="btn-voucher" type="button"
-          onclick="window.location.href='voucher.html'">
-          Login Voucher
+          onclick="location.href='voucher.html'">
+          LOGIN VOUCHER
         </button>
       </div>
     </form>
 
-    <!-- TOGGLE DARK MODE -->
     <button id="themeToggle" class="toggle">🌙</button>
+    <small class="copy">© 2026 Gaming Hotspot</small>
 
-    <small class="copy">© 2026 Hotspot</small>
   </div>
 </div>
 
 <script>
-const toggle = document.getElementById("themeToggle");
-
-// cek mode sebelumnya
+const toggle=document.getElementById("themeToggle");
 if(localStorage.getItem("theme")==="dark"){
   document.body.classList.add("dark");
   toggle.textContent="☀️";
 }
-
-toggle.onclick = ()=>{
+toggle.onclick=()=>{
   document.body.classList.toggle("dark");
-
-  if(document.body.classList.contains("dark")){
-    toggle.textContent="☀️";
-    localStorage.setItem("theme","dark");
-  }else{
-    toggle.textContent="🌙";
-    localStorage.setItem("theme","light");
-  }
+  toggle.textContent=
+    document.body.classList.contains("dark")?"☀️":"🌙";
+  localStorage.setItem("theme",
+    document.body.classList.contains("dark")?"dark":"light");
 };
 </script>
 
