@@ -1,53 +1,165 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Voucher Hotspot</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <style>
-.btn-link {
-  background: #4f46e5;
-  padding: 12px 20px;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
+<meta charset="UTF-8">
+<title>Login Voucher</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* RESET */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:system-ui,Segoe UI,Roboto,sans-serif;
 }
-.btn-link:hover {
-  background: #4338ca;
-  transform: scale(1.05);
+
+/* BACKGROUND GAMBAR */
+body{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url("bg.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.4s;
+}
+body.dark{
+  background:
+    linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
+    url("bg.jpg") center/cover no-repeat;
+}
+
+/* CONTAINER */
+.container{
+  width:100%;
+  max-width:380px;
+  padding:20px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:28px 22px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,.2);
+  animation:fadeUp .8s ease;
+  transition:.4s;
+}
+body.dark .card{
+  background:#0f172a;
+  color:#e5e7eb;
+}
+
+/* LOGO */
+.logo{
+  width:90px;
+  margin-bottom:15px;
+}
+
+/* TEXT */
+p{
+  font-size:14px;
+  color:#555;
+  margin-bottom:18px;
+}
+body.dark p{color:#cbd5f5}
+
+/* INPUT */
+input{
+  width:100%;
+  padding:12px 14px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  font-size:15px;
+  text-align:center;
+  letter-spacing:1px;
+}
+input:focus{
+  outline:none;
+  border-color:#6366f1;
+}
+body.dark input{
+  background:#020617;
+  border-color:#334155;
+  color:white;
+}
+
+/* BUTTON */
+.btn-login{
+  width:100%;
+  background:#22c55e;
+  color:white;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+  transition:.3s;
+}
+.btn-login:hover{
+  background:#16a34a;
+  transform:translateY(-2px);
+}
+
+/* BACK BUTTON */
+.btn-back{
+  margin-top:10px;
+  background:#4f46e5;
+  color:white;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  font-size:14px;
+  cursor:pointer;
+  transition:.3s;
+}
+.btn-back:hover{
+  background:#4338ca;
+}
+
+/* TOGGLE */
+.toggle{
+  margin-top:14px;
+  background:transparent;
+  border:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* FOOTER */
+.copy{
+  display:block;
+  margin-top:14px;
+  font-size:12px;
+  color:#777;
+}
+body.dark .copy{color:#9ca3af}
+
+/* ANIMASI */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(25px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  .card{padding:22px 18px;}
 }
 </style>
-  <style>
-.btn-link2 {
-  background: #f739f7;
-  padding: 12px 20px;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.btn-link2:hover {
-  background: #f739f7;
-  transform: scale(1.05);
-}
-</style>
-  </style>
 </head>
+
 <body>
 
 <div class="container">
   <div class="card">
-    <img src="logo.png" alt="Logo" class="logo">
 
-    <h2>Voucher Hotspot</h2>
+    <img src="logo.png" class="logo" alt="Logo">
+
+    <h2>Login Voucher</h2>
     <p>Masukkan kode voucher Anda</p>
 
     <!-- FORM LOGIN VOUCHER -->
@@ -55,20 +167,49 @@
       <input type="hidden" name="dst" value="$(link-orig)">
       <input type="hidden" name="popup" value="true">
 
-      <input type="text" name="username" placeholder="Kode Voucher" required>
+      <!-- Di Mikrotik voucher biasanya: username = kode voucher -->
+      <input type="text" name="username" placeholder="KODE VOUCHER" required>
+
+      <!-- password dikosongkan atau sama dengan username -->
       <input type="hidden" name="password" value="">
 
-      <button class="btn-link2" type="submit">Masuk</button>
-      <button class="btn-link" onclick="window.location.href='login.html'">
-  Member Login
-</button>
+      <button class="btn-login" type="submit">Masuk</button>
     </form>
 
+    <!-- KEMBALI KE LOGIN USER -->
+    <button class="btn-back"
+      onclick="window.location.href='login.html'">
+      ← Login User
+    </button>
+
+    <!-- TOGGLE DARK MODE -->
     <button id="themeToggle" class="toggle">🌙</button>
+
     <small class="copy">© 2026 Hotspot</small>
   </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+const toggle = document.getElementById("themeToggle");
+
+// cek mode sebelumnya
+if(localStorage.getItem("theme")==="dark"){
+  document.body.classList.add("dark");
+  toggle.textContent="☀️";
+}
+
+toggle.onclick = ()=>{
+  document.body.classList.toggle("dark");
+
+  if(document.body.classList.contains("dark")){
+    toggle.textContent="☀️";
+    localStorage.setItem("theme","dark");
+  }else{
+    toggle.textContent="🌙";
+    localStorage.setItem("theme","light");
+  }
+};
+</script>
+
 </body>
 </html>
